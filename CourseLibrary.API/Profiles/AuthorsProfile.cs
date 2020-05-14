@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CourseLibrary.API.Helpers;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace CourseLibrary.API.Profiles
                     dest => dest.Age, 
                     opt => opt.MapFrom(src => src.DateOfBirth.GetCurrentAge()));
             ;
+            CreateMap<Models.AuthorsForCreation, Entities.Author>();
         }
     }
 }
