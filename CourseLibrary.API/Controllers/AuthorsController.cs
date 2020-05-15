@@ -28,13 +28,6 @@ namespace CourseLibrary.API.Controllers
                 throw new ArgumentNullException(nameof(mapper));
         }
 
-       /* [HttpGet()]
-        [HttpHead]
-        public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
-        {
-            var authorsFromRepo = _courseLibraryRepository.GetAuthors();
-            return Ok(_mapper.Map<IEnumerable<AuthorDto>>(authorsFromRepo));
-        }*/
 
         [HttpGet("{authorId}", Name ="GetAuthors")]
         public ActionResult<IEnumerable<AuthorDto>> GetAuthor(Guid authorId)
@@ -58,7 +51,7 @@ namespace CourseLibrary.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult<AuthorDto> CreateAuthor(AuthorsForCreation author)
+        public ActionResult<AuthorDto> CreateAuthor(AuthorsForCreationDto author)
         {
             // Added to the DbContext
             var authorEntity = _mapper.Map<Entities.Author>(author);
