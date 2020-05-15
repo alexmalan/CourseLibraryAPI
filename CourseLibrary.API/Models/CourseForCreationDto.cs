@@ -8,14 +8,5 @@ using System.Threading.Tasks;
 
 namespace CourseLibrary.API.Models
 {
-    [CourseTitleMustBeDifferentFromDescriptionAttribute]
-    public class CourseForCreationDto
-    {
-        [Required]
-        [MaxLength(100)]
-        public string Title { get; set; }
-
-        [MaxLength(1500)]
-        public string Description { get; set; }
-    } // class
+    public class CourseForCreationDto : CourseForManipulationDto{ }
 } // namespace
